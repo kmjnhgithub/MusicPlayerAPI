@@ -87,10 +87,10 @@ class ItemDetailViewController: UIViewController, AVAudioPlayerDelegate {
         let previewUrl = item.previewUrl
         
         if let cachedURL = getCachedURL(for: previewUrl) {
-            // Use the cached file
+            // Use cached file
             preparePlayer(with: cachedURL)
         } else {
-            // Download the file
+            // Download file
             downloadFile(from: previewUrl) { [weak self] (url, error) in
                 guard let self = self else { return }
                 if let error = error {
@@ -100,6 +100,7 @@ class ItemDetailViewController: UIViewController, AVAudioPlayerDelegate {
                 }
             }
         }
+        
 
         
         // set up user interface elements
@@ -117,7 +118,7 @@ class ItemDetailViewController: UIViewController, AVAudioPlayerDelegate {
         
         // album cover
         albumImageView.frame = CGRect(x: 10, y: 10, width: holder.frame.size.width-20, height: holder.frame.size.width-20)
-        albumImageView.kf.setImage(with: item.artworkUrl100, placeholder: UIImage(systemName: "music.note"))
+        albumImageView.kf.setImage(with: item.artworkUrl500, placeholder: UIImage(systemName: "music.note"))
         albumImageView.layer.cornerRadius = 10
         albumImageView.layer.masksToBounds = true
         shadowView.addSubview(albumImageView)

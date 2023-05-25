@@ -25,6 +25,7 @@ class SongTableViewController: UITableViewController {
         fetchItems()
 
     }
+    
     @IBSegueAction func showDetail(_ coder: NSCoder) -> ItemDetailViewController? {
         if let row = tableView.indexPathForSelectedRow?.row {
             let controller = ItemDetailViewController(coder: coder)

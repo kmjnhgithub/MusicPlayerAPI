@@ -21,4 +21,8 @@ class StoreItem: Codable {
     let artworkUrl100: URL
     let trackPrice: Double?
     let isStreamable: Bool?
+    
+    var artworkUrl500: URL {
+            artworkUrl100.deletingLastPathComponent().appending(path: "500x500bb.jpg")
+        }
 }
